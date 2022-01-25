@@ -9,29 +9,14 @@ import java.util.function.Predicate;
 @UtilityClass
 public class ArticlesPredicateStrategy {
 
-    public Predicate<ArticleDTO> determinePredicate(String newsSite, String keyWord) {
+    public Predicate<ArticleDTO> determinePredicate(String newsSite, String title) {
         Predicate<ArticleDTO> predicate = null;
-        if (StringUtils.isNotBlank(newsSite) && StringUtils.isBlank(keyWord)) {
-            predicate = new Predicate<ArticleDTO>() {
-                @Override
-                public boolean test(ArticleDTO article) {
-                    return newsSite.equalsIgnoreCase(article.getNewsSite());
-                }
-            };
-        } else if (StringUtils.isBlank(newsSite) && StringUtils.isNotBlank(keyWord)) {
-            predicate = new Predicate<ArticleDTO>() {
-                @Override
-                public boolean test(ArticleDTO article) {
-                    return article.getTitle().contains(keyWord);
-                }
-            };
-        } else if (StringUtils.isNotBlank(newsSite) && StringUtils.isNotBlank(keyWord)) {
-            predicate = new Predicate<ArticleDTO>() {
-                @Override
-                public boolean test(ArticleDTO article) {
-                    return newsSite.equalsIgnoreCase(article.getNewsSite()) && article.getTitle().contains(keyWord);
-                }
-            };
+        if (StringUtils.isNotBlank(newsSite) && StringUtils.isBlank(title)) {
+            predicate = article -> newsSite.equalsIgnoreCase(article.getNewsSite());
+        } else if (StringUtils.isBlank(newsSite) && StringUtils.isNotBlank(title)) {
+            predicate = article -> article.getTitle().contains(title);
+        } else if (StringUtils.isNotBlank(newsSite) && StringUtils.isNotBlank(title)) {
+            predicate = article -> newsSite.equalsIgnoreCase(article.getNewsSite()) && article.getTitle().contains(title);
         }
         return predicate;
     }

@@ -1,0 +1,144 @@
+GET http://localhost:8080/articles?newsSite=SpaceNews&title=JWST
+
+<> 2022-01-26T001254.200.json
+
+###
+
+GET http://localhost:8080/articles?newsSite=SpaceNews&title=JWST
+
+<> 2022-01-26T001238.200.json
+
+###
+
+GET http://localhost:8080/articles?newsSite=SpaceNews&title=JWST
+
+<> 2022-01-26T001228.200.json
+
+###
+
+GET http://localhost:8080/5day/forecast/02-796
+
+<> 2022-01-26T001221.404.json
+
+###
+
+GET http://localhost:8080/articles?newsSite=SpaceNews&title=JWTL
+
+<> 2022-01-26T001208.200.json
+
+###
+
+GET http://localhost:8080/articles?newsSite=SpaceNews&title=dupa
+
+<> 2022-01-26T001155.200.json
+
+###
+
+GET http://localhost:8080/5day/forecast/02-796
+
+<> 2022-01-25T235511.404.json
+
+###
+
+GET http://localhost:8080/articles?newsSite=SpaceNews&title=JWST
+
+<> 2022-01-25T235454.200.json
+
+###
+
+GET http://localhost:8080/articles?newsSite=SpaceNews&title=JWST
+
+<> 2022-01-25T235403.500.txt
+
+###
+
+GET http://localhost:8080/articles?newsSite=SpaceNews&title=JWST
+
+<> 2022-01-25T235242.200.json
+
+###
+
+GET http://localhost:8080/articles?newsSite=SpaceNews&title=JWST
+
+<> 2022-01-25T235145.200.json
+
+###
+
+GET http://localhost:8080/articles?newsSite=SpaceNews&title=JWST
+
+<> 2022-01-25T233717.200.json
+
+###
+
+GET http://localhost:8080/articles?newsSite=SpaceNews&title=JWST
+
+<> 2022-01-25T233529.200.json
+
+###
+
+GET http://localhost:8080/articles?newsSite=SpaceNews&title=JWST
+
+<> 2022-01-25T233520.200.json
+
+###
+
+GET http://localhost:8080/articles?newsSite=SpaceNews&title=JWST
+
+<> 2022-01-25T233500.200.json
+
+###
+
+GET http://localhost:8080/articles?newsSite=SpaceNews&title=JWST
+
+<> 2022-01-25T233030.200.json
+
+###
+
+GET http://localhost:8080/articles?newsSite=SpaceNews
+
+<> 2022-01-25T232859.200.json
+
+###
+
+GET http://localhost:8080/articles?newsSite=SpaceNews
+
+<> 2022-01-25T232853.200.json
+
+###
+
+GET http://localhost:8080/articles?newsSite=Space
+
+<> 2022-01-25T232756.200.json
+
+###
+
+GET http://localhost:8080/articles?newsSite=NASA
+
+<> 2022-01-25T232739.200.json
+
+###
+
+GET http://localhost:8080/articles
+
+<> 2022-01-25T232701.200.json
+
+###
+
+GET http://localhost:8080/articles
+
+<> 2022-01-25T232659.200.json
+
+###
+
+GET http://localhost:8080/articles
+
+<> 2022-01-25T232651.200.json
+
+###
+
+GET http://localhost:8080/articles
+
+<> 2022-01-25T232521.500.txt
+
+###
+
