@@ -1,23 +1,15 @@
 package com.example.demo.exception;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class RestException extends Exception {
-    private int statusCode;
+    private final int statusCode;
 
     public RestException(int statusCode, String message) {
         super(message);
-        this.statusCode = statusCode;
-    }
-
-    public RestException(int statusCode, String message, Throwable cause) {
-        super(message, cause);
-        this.statusCode = statusCode;
-    }
-
-    public int getStatusCode() {
-        return statusCode;
-    }
-
-    public void setStatusCode(int statusCode) {
         this.statusCode = statusCode;
     }
 }

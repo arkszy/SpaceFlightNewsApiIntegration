@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.util.List;
 
 public interface ArticlesService {
+
     @Retryable(value = RestException.class, maxAttempts = 2, backoff = @Backoff(value = 5000, delay = 5000))
     List<ArticleDTO> getArticles(String newsSite, String keyWord) throws IOException, InterruptedException, RestException;
 

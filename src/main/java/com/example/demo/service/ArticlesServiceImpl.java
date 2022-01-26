@@ -5,6 +5,7 @@ import com.example.demo.exception.RestException;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -15,15 +16,19 @@ import org.springframework.web.reactive.function.client.WebClientResponseExcepti
 import java.util.Collections;
 import java.util.List;
 import java.util.function.Predicate;
-import java.util.stream.Collectors;
 
 @Slf4j
 @Service
 public class ArticlesServiceImpl implements ArticlesService {
 
-    public List<ArticleDTO> getArticles(String newsSite, String title) throws RestException {
-        WebClient webClient = WebClient.create("https://api.spaceflightnewsapi.net/");
+    private final WebClient webClient;
 
+    public ArticlesServiceImpl(@Value("${spaceFlightNewsApi.baseUrl}") String baseUrl) {
+        this.webClient = WebClient.create(baseUrl);
+    }
+
+    @Override
+    public List<ArticleDTO> getArticles(String newsSite, String title) throws RestException {
         try {
             ResponseEntity<List<ArticleDTO>> responseEntity = webClient.get().uri("v3/articles?_limit=10").accept(MediaType.APPLICATION_JSON).retrieve().toEntityList(ArticleDTO.class).block();
             if (responseEntity != null) {
@@ -33,7 +38,7 @@ public class ArticlesServiceImpl implements ArticlesService {
                 if (!CollectionUtils.isEmpty(articles)) {
                     Predicate<ArticleDTO> predicate = ArticlesPredicateStrategy.determinePredicate(newsSite, title);
                     if (predicate != null) {
-                        return articles.stream().filter(predicate).collect(Collectors.toList());
+                        return articles.stream().filter(predicate).toList();
                     } else {
                         return articles;
                     }
@@ -45,6 +50,7 @@ public class ArticlesServiceImpl implements ArticlesService {
         }
     }
 
+    @Override
     public List<ArticleDTO> getArticlesRecover(RestException e, String newsSite, String title) {
         log.debug("Trying retry {} with newSite: {} and title {}", e, newsSite, title);
         try {
